@@ -87,9 +87,30 @@ public class part1 {
 
     //S10. Ödənişləri valyutaya görə qruplaşdır, hər valyuta üzrə ən böyük ödənişi tap.
 
-  Map<Currency, Double> t10 = transactionList.stream()
-          .collect(Collectors.groupingBy(Transaction::currency,Collectors.collectingAndThen(
-                  Collectors.maxBy(Comparator.comparing(Transaction::amount)),
-          opt->opt.map(Transaction::amount).orElse(0.0))));
+      Map<Currency, Double> t10 = transactionList.stream()
+              .collect(Collectors.groupingBy(Transaction::currency,Collectors.collectingAndThen(
+                      Collectors.maxBy(Comparator.comparing(Transaction::amount)),
+              opt->opt.map(Transaction::amount).orElse(0.0))));
+
+    //S11. Fraud detection — son 1 saatda eyni kartdan 3-dən çox tranzaksiya olan kartları aşkarla.
+        transactionList.stream()
+                .filter(t->t.date().isAfter(LocalDateTime.now().minusHours(1)))
+                .collect(Collectors.groupingBy(Transaction::cardNumber,Collectors.counting()))
+                .entrySet().stream()
+                .filter(y->y.getValue()>3)
+                .collect(Collectors.toMap
+                        (Map.Entry::getKey,
+                         Map.Entry::getValue));
+
+    //S12. Müştəriləri risk kateqoriyasına görə qruplaşdır:
+        customers.stream()
+                .collect(Collectors.groupingBy(
+                        c->{
+                            if(c.balance()>50_000) return "Low";
+                            else if(c.balance()<10_000) return "High";
+                            else return "Medium";
+                        },
+                        Collectors.counting()
+                ));
     }
 }
