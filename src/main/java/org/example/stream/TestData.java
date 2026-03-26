@@ -12,46 +12,46 @@ public class TestData {
     public static List<Customer> customers() {
         return List.of(
 
-                new Customer("Anar Həsənov", "Baku", Status.ACTIVE, 85_000,
+                new Customer("Gulshan Sattarova", "Nakchivan", Status.ACTIVE, 85_000,
                         LocalDate.of(2019, 3, 10),
                         List.of(
                                 new Card("4169 1111", CardType.CREDIT, 10_000, true),
                                 new Card("4169 1112", CardType.DEBIT,   5_000, false)
                         )),
 
-                new Customer("Leyla Əliyeva", "Baku", Status.ACTIVE, 12_500,
+                new Customer("Leyla Mammadova", "Barda", Status.ACTIVE, 12_500,
                         LocalDate.of(2021, 7, 22),
                         List.of(
                                 new Card("4169 2221", CardType.DEBIT,  3_000, true),
                                 new Card("4169 2222", CardType.CREDIT, 8_000, true)
                         )),
 
-                new Customer("Kamran Nəsirov", "Ganja", Status.INACTIVE, 47_300,
+                new Customer("Gunay Niyazli", "Agstafa", Status.ACTIVE, 47_300,
                         LocalDate.of(2020, 1, 5),
                         List.of(
                                 new Card("4169 3331", CardType.CREDIT, 15_000, false)
                         )),
 
-                new Customer("Nigar Məmmədova", "Sumgait", Status.ACTIVE, 3_200,
+                new Customer("Nigar Məmmədova", "Barda", Status.ACTIVE, 3_200,
                         LocalDate.of(2023, 11, 1),
                         List.of(
                                 new Card("4169 4441", CardType.DEBIT, 2_000, true),
                                 new Card("4169 4442", CardType.DEBIT, 2_000, true)
                         )),
 
-                new Customer("Tural Babayev", "Baku", Status.ACTIVE, 91_000,
+                new Customer("Ali Babayev", "Baku", Status.ACTIVE, 91_000,
                         LocalDate.of(2018, 6, 14),
                         List.of(
                                 new Card("4169 5551", CardType.CREDIT, 20_000, true)
                         )),
 
-                new Customer("Səbinə Quliyeva", "Ganja", Status.BLOCKED, 8_750,
+                new Customer("Səbinə Quliyeva", "Tovuz", Status.BLOCKED, 8_750,
                         LocalDate.of(2022, 4, 30),
                         List.of(
                                 new Card("4169 6661", CardType.DEBIT, 5_000, false)
                         )),
 
-                new Customer("Rəşad Hüseynov", "Lankaran", Status.ACTIVE, 29_400,
+                new Customer("Ali Hüseynov", "Lankaran", Status.ACTIVE, 29_400,
                         LocalDate.of(2020, 9, 18),
                         List.of(
                                 new Card("4169 7771", CardType.CREDIT, 7_000, true),
@@ -64,7 +64,7 @@ public class TestData {
                                 new Card("4169 8881", CardType.CREDIT, 12_000, true)
                         )),
 
-                new Customer("Orxan Cəfərov", "Sumgait", Status.INACTIVE, 1_800,
+                new Customer("Ali Cəfərov", "Sumgait", Status.INACTIVE, 1_800,
                         LocalDate.of(2023, 8, 15),
                         List.of(
                                 new Card("4169 9991", CardType.DEBIT, 1_000, false)
@@ -86,7 +86,7 @@ public class TestData {
         LocalDateTime now = LocalDateTime.now();
 
         return List.of(
-                // Anar Həsənov — 4169 1111
+                // Gulshan Sattarova — 4169 1111
                 new Transaction("TRX001", "4169 1111", "Baku Main Branch",    TransactionType.CREDIT,   Currency.AZN,  4_500, "AZ", now.minusDays(2)),
                 new Transaction("TRX002", "4169 1111", "Baku Main Branch",    TransactionType.DEBIT,    Currency.AZN,  1_200, "AZ", now.minusDays(1)),
                 new Transaction("TRX003", "4169 1111", "Baku Main Branch",    TransactionType.TRANSFER, Currency.USD,  8_000, "US", now.minusHours(3)),
@@ -98,7 +98,7 @@ public class TestData {
                 new Transaction("TRX007", "4169 2222", "Ganja Branch",        TransactionType.CREDIT,   Currency.AZN,  3_200, "AZ", now.minusDays(3)),
                 new Transaction("TRX008", "4169 2222", "Ganja Branch",        TransactionType.TRANSFER, Currency.USD,  5_500, "US", now.minusDays(1)),
 
-                // Tural Babayev — 4169 5551
+                // Ali Babayev — 4169 5551
                 new Transaction("TRX009", "4169 5551", "Baku Main Branch",    TransactionType.CREDIT,   Currency.AZN, 15_000, "AZ", now.minusDays(10)),
                 new Transaction("TRX010", "4169 5551", "Baku Main Branch",    TransactionType.TRANSFER, Currency.EUR, 12_000, "FR", now.minusDays(7)),
                 new Transaction("TRX011", "4169 5551", "Baku Main Branch",    TransactionType.TRANSFER, Currency.USD,  9_500, "US", now.minusDays(4)),

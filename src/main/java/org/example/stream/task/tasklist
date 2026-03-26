@@ -1,0 +1,35 @@
+S1. Müştəri siyahısından yalnız aktiv olanları (status == ACTIVE) götür və adlarını əlifba sırası ilə qaytar.
+S2. Son 30 günün tranzaksiyalarından ümumi məbləği hesabla.
+S3. Kartların siyahısından limit 5000-dən yuxarı olanların sayını tap.
+S4. Tranzaksiya siyahısından ən böyük 3 ödənişi tap.
+S5. İstifadəçilərin IBAN siyahısından dublikatları aşkarla.
+S6. Tranzaksiyaları tipə görə qruplaşdır (CREDIT, DEBIT, TRANSFER) və hər tip üzrə ümumi məbləği hesabla.
+S7. Müştəriləri şəhərə görə qruplaşdır, hər şəhərdə ortalama balansı hesabla, yalnız ortalama balansı 10,000-dən yuxarı olanları qaytar.
+S8. Aşağıdakı record-lardan istifadə edərək hər filialın aylıq dövriyyəsini hesabla.
+S9. Müştərilərin kart siyahıları iç-içədir — bütün aktiv kartları bir siyahıya yığ.
+S10. Ödənişləri valyutaya görə qruplaşdır, hər valyuta üzrə ən böyük ödənişi tap.
+S11. Fraud detection — son 1 saatda eyni kartdan 3-dən çox tranzaksiya olan kartları aşkarla.
+S12. Müştəriləri risk kateqoriyasına görə qruplaşdır:
+        LOW — balans > 50,000
+        MEDIUM — balans 10,000–50,000
+        HIGH — balans < 10,000
+Hər kateqoriyada neçə müştəri olduğunu qaytar.
+S13. Hesab hərəkətlərindən running balance hesabla — yəni hər tranzaksiyadan sonra balansın nə olduğunu sıra ilə qaytar.
+S14. Filiallar üzrə performans hesabatı: hər filial üçün {tranzaksiya sayı, ümumi dövriyyə, ortalama məbləğ, ən böyük ödəniş} qaytar — tək collect ilə.
+S15. İki müştəri siyahısını müqayisə et — köhnə sistemdə var, yeni sistemdə olmayan müştəriləri tap.
+S16. AML (Anti-Money Laundering) — aşağıdakı şərtləri eyni anda ödəyən müştəriləri tap:
+
+        Gündəlik tranzaksiya həcmi > 100,000
+        Fərqli ölkələrə ödəniş sayı > 5
+        Hesab yaşı < 6 ay
+
+S17. Müştərilərin aylıq xərc dinamikasını hesabla — hər müştəri üçün Map<Month, Double> qaytar, sonra ən çox artım göstərəni tap.
+S18. parallelStream ilə 1 milyonluq tranzaksiya siyahısını emal et, nəticəni sequential ilə müqayisə et — fərq nə vaxt yaranır, nə vaxt yaranmır?
+S19. Custom Collector yaz: tranzaksiyaları götürüb {ilk tranzaksiya tarixi, son tranzaksiya tarixi, ümumi məbləğ, ortalama məbləğ} olan HesabXulasesi obyekti qaytar.
+S20. Müştəri segmentasiyası — RFM modeli ilə:
+
+        R (Recency) — son alış neçə gün əvvəl?
+        F (Frequency) — neçə dəfə alış edib?
+        M (Monetary) — ümumi nə qədər xərcləyib?
+
+Hər müştəriyə 1–5 arası bal ver, yekun Map<Musteri, RFMSkor> qaytar — yalnız Stream ilə.
